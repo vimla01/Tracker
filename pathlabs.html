@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nearby Hospitals & Clinics - Pathlabs</title>
+  <link rel="stylesheet" href="./style23.css" />
+  <link rel="stylesheet" href="pathlabs.css" />
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet/dist/leaflet.css"
+  />
+  <style>
+    /* Highlight effect on card */
+    .card.highlight {
+      border: 2px solid #47859a;
+      box-shadow: 0 0 10px #47859a;
+      transition: box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="navbar">
+    <div class="logo">MediPin</div>
+    <nav>
+      <a href="./hospitals.html">Hospitals</a>
+      <a href="./clinics01.html">Clinics</a>
+      <a href="./pathlabs.html">Pathlabs</a>
+    </nav>
+
+    <nav class="other">
+      <a href="./index.html">Home</a>
+      <a href="Aboutus.html">About us</a>
+      <a href="./help.html">Help</a>
+      <a href="services.html">Services</a>
+      
+    </nav>
+
+    <div class="auth-buttons">
+      <a href="./signup.html" class="btn">Login / Signup</a>
+    </div>
+  </header>
+
+  <!-- SEARCH BAR -->
+  <section class="search-bar">
+    
+    <input
+      type="text"
+      placeholder="Search hospitals , clinics , pathlabs "
+      class="search-input"
+      id="search-input"
+    />
+    <button class="search-btn">Search</button>
+  </section>
+
+  <!-- MAP section -->
+  <section class="map-section">
+    <div id="map"></div>
+  </section>
+
+  <!-- CARDS SECTION -->
+  <section class="cards-section">
+
+    <a href="https://www.aspiradiagnostics.com/" class="card" data-id="aspira" target="_blank" rel="noopener noreferrer">
+      <img src="aspira.png" alt="Aspira Pathlab" />
+      <h3>Aspira Pathlab</h3>
+      <div class="stars">★★★★☆</div>
+      <p class="address">
+        Shraddhanand Rd, Ghatkopar West, Mumbai
+      </p>
+      <p>Contact: 02271975756</p>
+    </a>
+    
+    <a href="https://labs.lalpathlabs.com/dr-lal-pathlabs-patient-service-centre-diagnostic-centre-chembur-mumbai-288898/Home" class="card" data-id="lalpathlabs" target="_blank" rel="noopener noreferrer">
+      <img src="./lalpath.png" alt="Dr Lal PathLabs" />
+      <h3>Dr Lal PathLabs</h3>
+      <div class="stars">★★★★★</div>
+      <p class="address">
+        Plot No 202, Gayatri Niwas, Chembur, Mumbai
+      </p>
+      <p>Contact: 08062564120</p>
+    </a>
+
+    <a href="https://stardiagnostics.co.in/" class="card" data-id="starpolyclinic" target="_blank" rel="noopener noreferrer">
+      <img src="./star.png" alt="Star Polyclinic & Diagnostic" />
+      <h3>Star Polyclinic & Diagnostic</h3>
+      <div class="stars">★★★☆☆</div>
+      <p class="address">
+        Lal Bahadur Shastri Marg, Kurla West, Mumbai
+      </p>
+      <p>Contact: 08652304039</p>
+    </a>
+
+    <a href="http://www.paraspathology.com/" class="card" data-id="paraspathology" target="_blank" rel="noopener noreferrer">
+      <img src="./paras.png" alt="Paras Pathology LLP" />
+      <h3>Paras Pathology LLP</h3>
+      <div class="stars">★★★★☆</div>
+      <p class="address">
+        Old Anand Nagar Service Rd, Santacruz East, Mumbai
+      </p>
+      <p>Contact: 07045280906</p>
+    </a>
+
+    <a href="http://exceldiagnosticcentre.in/" class="card" data-id="exceldiagnostic" target="_blank" rel="noopener noreferrer">
+      <img src="./excel.png" alt="Excel Diagnostic Centre" />
+      <h3>Excel Diagnostic Centre</h3>
+      <div class="stars">★★★☆☆</div>
+      <p class="address">
+        Kalina, Santacruz East, Mumbai
+      </p>
+      <p>Contact: 08355804855</p>
+    </a>
+
+    <a href="https://www.suburbandiagnostics.com/location/maharashtra/mumbai/santacruz-east" class="card" data-id="suburban" target="_blank" rel="noopener noreferrer">
+      <img src="./subarban.png" alt="Suburban Diagnostics" />
+      <h3>Suburban Diagnostics</h3>
+      <div class="stars">★★★★☆</div>
+      <p class="address">
+        Vidya Nagari, Kalina, Santacruz East, Mumbai
+      </p>
+      <p>Contact: 02261700000</p>
+    </a>
+
+    <a href="https://redcliffelabs.com/centre/redcliffe-labs-collection-center-sahani-diagnostic-diagnostic-centre-santacruz-east-mumbai-289396/Home" class="card" data-id="redcliffelabs" target="_blank" rel="noopener noreferrer">
+      <img src="./redclif.png" alt="Redcliffe Labs" />
+      <h3>Redcliffe Labs</h3>
+      <div class="stars">★★★★☆</div>
+      <p class="address">
+        Vakola Pipeline Rd, Santacruz East, Mumbai
+      </p>
+      <p>Contact: 07969285615</p>
+    </a>
+
+    <a href="https://agilusdiagnostics.com/" class="card" data-id="agilus" target="_blank" rel="noopener noreferrer">
+      <img src="./agilus.png" alt="Agilus Diagnostics" />
+      <h3>Agilus Diagnostics</h3>
+      <div class="stars">★★★☆☆</div>
+      <p class="address">
+        Lal Bahadur Shastri Marg, Kurla West, Mumbai
+      </p>
+      <p>Contact: 08169265525</p>
+    </a>
+
+    <a href="http://www.rexalabs.com/" class="card" data-id="rexa" target="_blank" rel="noopener noreferrer">
+      <img src="./rexa.png" alt="Rexa Labs" />
+      <h3>Rexa Labs</h3>
+      <div class="stars">★★★☆☆</div>
+      <p class="address">
+        Sion - Trombay Rd, Chembur, Mumbai
+      </p>
+      <p>Contact: 07977050109</p>
+    </a>
+
+    <a href="http://www.aarthiscan.com/" class="card" data-id="aarthi" target="_blank" rel="noopener noreferrer">
+      <img src="./arthi.png" alt="Aarthi Scans and Labs" />
+      <h3>Aarthi Scans and Labs</h3>
+      <div class="stars">★★★★★</div>
+      <p class="address">
+        Shop No 1, K Chhaya Bldg, Shival Nagar, Ghatkopar East, Mumbai
+      </p>
+      <p>Contact: 07349673496</p>
+    </a> 
+
+    <a href="https://www.metropolisindia.com/lab/diagnostic-centre-in-kurla-west-new-mill-road-mumbai" class="card" data-id="metropolis" target="_blank" rel="noopener noreferrer">
+      <img src="./metro.png" alt="Metropolis Labs" />
+      <h3>Metropolis Labs</h3>
+      <div class="stars">★★★★☆</div>
+      <p class="address">
+        Shop No.28, Shatrunjay Giriraj CHS, Kurla West, Mumbai
+      </p>
+      <p>Contact: 02246180411</p>
+    </a>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-content">
+      <div class="about">
+        <h3>About Us</h3>
+        <p>
+          Our project aims to help people easily locate nearby medical pathlabs,
+          hospitals, and clinics with accurate details and directions. It
+          provides quick access to essential healthcare services, ensuring users
+          can find trusted medical facilities in times of need. Whether for
+          routine checkups, emergencies, or diagnostic tests, our platform makes
+          healthcare more accessible and convenient.
+        </p>
+      </div>
+      <div class="contact">
+        <h3>Contact</h3>
+        <p>Email: medipin123@gmail.com</p>
+        <p>Phone: +91 98765 43210</p>
+        <p>Address: Dbit , Kurla , India</p>
+      </div>
+    </div>
+    <p class="copyright">© 2025 MediPin. All rights reserved.</p>
+  </footer>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="pathscript.js"></script>
+
+</body>
+</html>

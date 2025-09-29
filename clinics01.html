@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Mumbai Clinics with Map</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./clinic.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="logo">MediPin</div>
+
+        <nav>
+            <a href="./hospitals.html">Hospitals</a>
+            <a href="./clinics01.html">Clinics</a>
+            <a href="./pathlabs.html">Pathlabs</a>
+        </nav>
+
+        <nav class="other">
+            <a href="./index.html">Home</a>
+            <a href="Aboutus.html">About us</a>
+            <a href="User_guide.html">Help</a>
+            <a href="services.html">Services</a>
+        </nav>
+
+        <div class="auth-buttons">
+            <a href="./signup.html" class="btn">Login / Signup</a>
+        </div>
+    </header>
+
+    <!-- Dropdown Filter -->
+    <div class="dropdown-container">
+        <label for="clinicSelect"><b class="searchb">Select Clinic:</b></label>
+        <select id="clinicSelect">
+            <option value="all">All Clinics</option>
+            <option value="clinicA">New Life Polyclinic</option>
+            <option value="clinicB">SkinLab</option>
+            <option value="clinicC">Nurturing Petals</option>
+            <option value="clinicD">Apollo Clinic</option>
+            <option value="clinicE">Angel Care Clinic</option>
+            <option value="clinicF">RD Clinic</option>
+            <option value="clinicG">MALPANI INFERTILITY Clinic</option>
+            <option value="clinicH">Birth & Beyond Clinic </option>
+            <option value="clinicI">Supremus Women's Clinic</option>
+            <option value="clinicJ">Khajanchi's Clinic</option>
+            <option value="clinicK">Pediatric neurologist</option>
+            <option value="clinicL">Freedom Wellness</option>
+        </select>
+    </div>
+
+    <!-- Map -->
+    <div id="map"></div>
+
+    <!-- Cards Grid -->
+    <div class="clinic-grid">
+        <div class="card" data-id="clinicA">
+            <img src="https://lh3.googleusercontent.com/p/AF1QipNIbPRJOJDihdfwqAuQttVunwL2YSzAdsK8HMIR=s1360-w1360-h1020-rw"
+                alt="New Life Polyclinic">
+            <div class="card-content">
+                <h3>New Life Polyclinic</h3>
+                <p>Marine Lines, Mumbai.Open 24 hours
+                    Contact: 093265 86889</p>
+                <p></p>
+                <div class="stars"></div>
+            </div>
+        </div>
+
+        <div class="card" data-id="clinicB">
+            <img src="skinlab.jpg" alt="SkinLab">
+            <div class="card-content">
+                <h3>SkinLab</h3>
+                <p>Skin care clinic. Khar West, Mumbai</p>
+                <p>10am–8pm.Contact: 098203 23138</p>
+                <div class="stars">★★★★★</div>
+            </div>
+        </div>
+
+        <div class="card" data-id="clinicC">
+            <img src="https://lh3.googleusercontent.com/p/AF1QipPBJRpeL6Ig17Y5jl2YuhDjcURj0SAHvAYFGn0k=s1360-w1360-h1020-rw"
+                alt="Nurturing Petals">
+            <div class="card-content">
+                <h3>Nurturing Petals</h3>
+                <p>Obstetrician-gynecologist. Andheri, Mumbai</p>
+                <p>Open 24 hours
+                    Contact:099200 15140</p>
+                <div class="stars">★★★★☆</div>
+            </div>
+        </div>
+
+        <div class="card" data-id="clinicD">
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4noyI8FA8Y1Yv7T_W9xKaCBqeblN6GeHFsF-w3ndmmXfm2aTcTVFF97KK-iRAaWjMEOF4F9EXxuOoXjKpMdq4opmfITDQMeRL-GDC49lxyeiOF1ZHceLr9DmDAYrx7ghLsfb5vTTSA=s1360-w1360-h1020-rw"
+                alt="Apollo Clinic">
+            <div class="card-content">
+                <h3>Apollo Clinic</h3>
+                <p>Medical clinic.Andheri East, Mumbai</p>
+                <p>8 am–8 pm.Contact:022 4610 5555</p>
+                <div class="stars">★★★★☆</div>
+            </div>
+        </div>
+
+        <div class="card" data-id="clinicE">
+            <img src="https://lh3.googleusercontent.com/p/AF1QipMnTXB7Wufj8ngNghahOntKqE69ZsJWMyQmyYyx=s1360-w1360-h1020-rw"
+                alt="Angel care clinic">
+            <div class="card-content">
+                <h3>Angel Care Clinic</h3>
+                <p>Chembur, Mumbai.</p>
+                <p>8am-8pm.Contact:072172 19779</p>
+                <div class="stars">★★★★☆</div>
+            </div>
+        </div>
+        <div class="card" data-id="clinicF">
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4nqFnCqrE1nepYZk_jg4U-mrceP6duekkVgYJyMjYCUeq786FrgfMBlgPYuI5W5RnZqn8YuKiAQndNO4_Jaqj9E8IAzjqw83x1bHSeSYXmoXzlcb56OhdEXs5hTZwXkBcqBggnMo=s1360-w1360-h1020-rw"
+                alt="RD Cinic">
+            <div class="card-content">
+                <h3>RD Clinic</h3>
+                <p>Dermatologist.Chembur, Mumbai.</p>
+                <p>10am-9pm.Contact: 098197 07521</p>
+                <div class="stars">★★★★☆</div>
+            </div>
+        </div>
+        <div class="card" data-id="clinicG">
+            <img src="https://lh3.googleusercontent.com/p/AF1QipPkdRo9wnB9LWn0NkkNn9Kwup4fqi8XujFZc7dY=s1360-w1360-h1020-rw"
+                alt="Malpani clinic">
+            <div class="card-content">
+                <h3>MALPANI INFERTILITY Clinic</h3>
+                <p>Colaba,Mumbai.</p>
+                <p>11am-7pm.Contact: 098674 41589</p>
+                <div class="stars">★★★★☆</div>
+            </div>
+        </div>
+        <div class="card" data-id="clinicH">
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4nq9aUEnwrhjk7uiPfiRcQYFBTeHGQ0SQSVkosAuPQCETUhOzhYjrTyzlI6qTfNAGp8CBTRebDVPnXZV1OfKknVNp_mxQ1lM389QBd9dw0jsdYWs023T51xQUk-_hc0IIm1jhSCA5Q=s1360-w1360-h1020-rw"
+                alt=" Birth & Beyond Clinic ">
+            <div class="card-content">
+                <h3>Birth & Beyond Clinic </h3>
+                <p>Pediatrician.Parel, Mumbai.</p>
+                <p>10am-8pm.Contact: 022 2416 2665</p>
+                <div class="stars">★★★★☆</div>
+            </div>
+        </div>
+        <div class="card" data-id="clinicI">
+            <img src="https://lh3.googleusercontent.com/p/AF1QipNbgsnd-IXUXyO-9azbGx1hl5feThqHoonZ8Bkd=s1360-w1360-h1020-rw"
+                alt="Supremus Women's Clinic">
+            <div class="card-content">
+                <h3>Supremus Women's Clinic</h3>
+                <p>Gynecologist, Mumbai.</p>
+                <p>10am-8pm.Contact: 073043 56761</p>
+                <div class="stars">★★★★☆</div>
+            </div>
+        </div>
+        <div class="card" data-id="clinicJ">
+            <img src="https://lh3.googleusercontent.com/p/AF1QipMUea81559kvF1PODNJxkjDXscIhDd-LCw-dx6T=s1360-w1360-h1020-rw"
+                alt="Khajanchi's Clinic">
+            <div class="card-content">
+                <h3>Khajanchi's Clinic</h3>
+                <p>Dadar West, Mumbai.</p>
+                <p>9:30am-1pm.Contact: 077380 60108</p>
+                <div class="stars">★★★★☆</div>
+            </div>
+        </div>
+    
+    <div class="card" data-id="clinicK">
+        <img src="https://lh3.googleusercontent.com/p/AF1QipN24Fj6vRox76zCF1OVOIQLyY5oLvL3lE332bSe=s1360-w1360-h1020-rw"
+            alt="Aakaar Clinic">
+        <div class="card-content">
+            <h3>Aakaar clinic</h3>
+            <p> Pediatric neurologist.</p>
+            <p>Byculla,Mumbai.</p>
+            <p>4-7pm.Contact: 098694 05747</p>
+            <div class="stars">★★★★☆</div>
+        </div>
+    </div>
+    
+    <div class="card" data-id="clinicL">
+        <img src="https://lh3.googleusercontent.com/p/AF1QipMa8LuhSC9CZmY7iZvKyCryGPq4dDM1ObqDCARd=s1360-w1360-h1020-rw" alt="Freedom Wellness">
+        <div class="card-content">
+            <h3>Freedom Wellness</h3>
+            <p>Parel West, Mumbai.</p>
+            <p>8am-1pm.Contact: 087676 40303</p>
+            <div class="stars">★★★★☆</div>
+        </div>
+    </div>
+    </div>
+    
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        // Mumbai center and bounds
+        const mumbaiCenter = [19.0760, 72.8777];
+        const mumbaiBounds = [[18.892, 72.775], [19.271, 72.994]];
+
+        // Create map
+        const map = L.map('map', {
+            center: mumbaiCenter,
+            zoom: 12,
+            minZoom: 11,
+            maxZoom: 16,
+            maxBounds: mumbaiBounds,
+            maxBoundsViscosity: 0.8
+        });
+
+        // Tile layer
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Clinic locations
+        const clinics = {
+           clinicA: [18.94, 72.8281],
+  clinicB: [19.0717, 72.8341],
+  clinicC: [19.1110, 72.8890],
+  clinicD: [19.1180, 72.8695],
+  clinicE: [19.0400, 72.9010],
+  clinicF: [19.0587, 72.8997],
+  clinicG: [18.9095, 72.8100],
+  clinicH: [19.0055, 72.8398],
+  clinicI: [19.0050, 72.8390],
+  clinicJ: [19.0180, 72.8410],
+  clinicK: [18.9820, 72.8330],
+  clinicL: [19.0060, 72.8340]
+
+
+        };
+
+        const markers = {};
+        for (let id in clinics) {
+            const marker = L.marker(clinics[id]).addTo(map);
+            marker.bindPopup(document.querySelector(`.card[data-id="${id}"] h3`).textContent);
+            markers[id] = marker;
+        }
+
+        // Dropdown filter
+        document.getElementById('clinicSelect').addEventListener('change', function () {
+            const value = this.value;
+            if (value === 'all') {
+                map.setView(mumbaiCenter, 12);
+            } else {
+                map.setView(clinics[value], 15);
+                markers[value].openPopup();
+            }
+        });
+    </script>
+    <footer>
+        <div class="footer-content">
+            <div class="about">
+                <h3>About Us</h3>
+                <p>
+                    Our project aims to help people easily locate nearby medical pathlabs, hospitals, and clinics with
+                    accurate details and directions. It provides quick access to essential healthcare services, ensuring
+                    users can find trusted medical facilities in times of need. Whether for routine checkups,
+                    emergencies, or diagnostic tests, our platform makes healthcare more accessible and convenient.
+                </p>
+            </div>
+            <div class="contact">
+                <h3>Contact</h3>
+                <p>Email: medipin123@gmail.com</p>
+                <p>Phone: +91 98765 43210</p>
+                <p>Address: Dbit , Kurla , India</p>
+            </div>
+        </div>
+        <p class="copyright">© 2025 MediPin. All rights reserved.</p>
+    </footer>
+<script src="clinics.js"></script>
+</body>
+
+</html>
