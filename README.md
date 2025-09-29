@@ -7,7 +7,6 @@ This is a simple web project created to help people find nearby hospitals, clini
 - Cards displaying hospital info like name, location, and services
 - Responsive and easy-to-use interface
 
-## How I Built It
 I used:
 - **HTML** for the structure of the pages
 - **CSS** for styling and layout
