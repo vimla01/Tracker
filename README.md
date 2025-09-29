@@ -10,7 +10,7 @@ This is a simple web project created to help people find nearby hospitals, clini
 I used:
 - **HTML** for the structure of the pages
 - **CSS** for styling and layout
-- **JavaScript** for interactivity and storing lat , lon .
+- **JavaScript** for interactivity and storing latitude & longitude.
 
 ## How to Use
 1. Open the `index.html` file in your browser.
