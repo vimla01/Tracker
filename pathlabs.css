@@ -1,11 +1,11 @@
-/* Cards Section */
+
 .cards-section {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
   padding: 20px;
-  background-color: #f8f9fa; /* light background */
+  background-color: #f8f9fa; 
 }
 
 .cards-section a.card {
@@ -13,8 +13,8 @@
   border-radius: 8px;
   box-shadow: 0 4px 8px rgb(0 0 0 / 0.1);
   padding: 20px;
-  width: 22%;      /* 4 cards per row roughly */
-  min-width: 220px; /* prevent cards from getting too narrow */
+  width: 22%;     
+  min-width: 220px; 
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
   text-decoration: none;
@@ -39,12 +39,12 @@
 
 .cards-section .card h3 {
   margin-top: 0;
-  color: #47859a; /* matching your marker pin color */
+  color: #47859a; 
   font-size: 1.2rem;
 }
 
 .cards-section .stars {
-  color: #f5b50a; /* gold star color */
+  color: #f5b50a; 
   font-size: 1rem;
   margin-bottom: 8px;
   user-select: none;
@@ -62,7 +62,7 @@
   font-weight: 600;
 }
 
-/* Highlighted card when selected */
+/* highlight card when select */ 
 .cards-section a.card.highlight {
   border: 2px solid #47859a;
   box-shadow: 0 0 15px 3px rgba(71, 133, 154, 0.7);
@@ -122,7 +122,7 @@ footer .copyright {
 /* Responsive tweaks */
 @media (max-width: 1024px) {
   .cards-section a.card {
-    width: 48%; /* 2 cards per row on tablets */
+    width: 48%; 
     min-width: auto;
   }
 }
