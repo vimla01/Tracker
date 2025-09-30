@@ -1,4 +1,4 @@
-// Pathlabs coordinates and websites keyed by an ID (lowercase no-spaces for IDs)
+// Pathlabs coordinates
 const pathlabsLocations = {
   aspira: { lat: 19.1444, lng: 72.9097 },
   lalpathlabs: { lat: 19.0729, lng: 72.9003 },
@@ -27,13 +27,13 @@ const pathlabsWebsites = {
   metropolis: "https://www.metropolisindia.com/lab/diagnostic-centre-in-kurla-west-new-mill-road-mumbai"
 };
 
-// Mumbai approximate bounding box latLngs to restrict map panning
+// Mumbai  restrict map panning
 const mumbaiBounds = [
   [18.8920, 72.7750],  // Southwest corner
   [19.2710, 72.9860]   // Northeast corner
 ];
 
-// Initialize Leaflet map centered on Mumbai with boundary limits and zoom limits
+
 const map = L.map('map', {
   maxBounds: mumbaiBounds,
   maxBoundsViscosity: 1.0,
@@ -41,37 +41,28 @@ const map = L.map('map', {
   maxZoom: 18
 }).setView([19.076, 72.877], 12);
 
-// Add OpenStreetMap tiles
+// Add OpenStreetMap 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '© OpenStreetMap contributors'
 }).addTo(map);
 
-// Custom blue marker icon
-//const customIcon = L.icon({
-  //iconUrl: 'https://cdn-icons-png.flaticon.com/512/252/252025.png', // blue location pin icon
-//  iconSize: [30, 40],    // size of the icon
-//  iconAnchor: [15, 40],  // point on icon corresponding to marker's location
-//  popupAnchor: [0, -38], // popup position relative to icon
-//});
+
 
 let markers = {};
-// Custom blue marker icon
+
 const customIcon = L.icon({
-  iconUrl: 'https://cdn-icons-png.flaticon.com/512/684/684908.png', // blue location pin
-  iconSize: [30, 40],    // size of the icon
-  iconAnchor: [15, 40],  // point on icon corresponding to marker's location
-  popupAnchor: [0, -38], // popup position relative to icon
+  iconUrl: 'https://cdn-icons-png.flaticon.com/512/684/684908.png',
+  iconSize: [30, 40],   
+  iconAnchor: [15, 40], 
+  popupAnchor: [0, -38], 
 });
 
 
-// Add markers for all pathlabs and bind popups
+
 for (let id in pathlabsLocations) {
- // let marker = L.marker([pathlabsLocations[id].lat, pathlabsLocations[id].lng], { icon: customIcon })
-   // .addTo(map)
-    //.bindPopup(`<b>${id.replace(/([a-z])([A-Z])/g, '$1 $2').toUpperCase()}</b>`);
     let marker = L.marker(
   [pathlabsLocations[id].lat, pathlabsLocations[id].lng],
-  { icon: customIcon } // <-- This tells Leaflet to use your blue icon
+  { icon: customIcon }
 )
 .addTo(map)
 .bindPopup(`<b>${id.replace(/([a-z])([A-Z])/g, '$1 $2').toUpperCase()}</b>`);
@@ -79,7 +70,7 @@ for (let id in pathlabsLocations) {
 
   markers[id] = marker;
 
-  // When marker clicked, scroll & highlight the corresponding card
+ // marker click then scrol n match card
   marker.on('click', () => {
     const card = document.querySelector(`.card[data-id="${id}"]`);
     if (card) {
@@ -90,7 +81,7 @@ for (let id in pathlabsLocations) {
   });
 }
 
-// When card clicked: zoom to marker, open popup, highlight card, open website
+// When card click ed : zoom to marker, open popup, highlight card, open website
 document.querySelectorAll(".card").forEach(card => {
   card.addEventListener("click", () => {
     const id = card.dataset.id;
