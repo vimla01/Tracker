@@ -2,116 +2,341 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nearby Hospitals & Clinics</title>
-    <link rel="stylesheet" href="./style23.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MediPin | Nearby Hospitals & Clinics</title>
+  <link rel="stylesheet" href="./style23.css">
+  <style>
+    /* Global Styling */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #ffffff;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #ffffff;
+      padding: 1rem 2.5rem;
+      color: #333;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .navbar .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #006d77;
+      letter-spacing: 1px;
+    }
+
+    .navbar nav {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .navbar nav a {
+      color: #333;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .navbar nav a:hover {
+      color: #006d77;
+    }
+
+    .auth-buttons .btn {
+      background-color: #006d77;
+      color: white;
+      padding: 0.5rem 1.2rem;
+      border-radius: 25px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .auth-buttons .btn:hover {
+      background-color: #00545b;
+    }
+
+    /* Hero Section */
+    .hero {
+      background-color: #006d77;
+      color: white;
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      font-weight: 600;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      margin-top: 1rem;
+      opacity: 0.95;
+      max-width: 750px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Card Section */
+    .card-section {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+      padding: 4rem 2rem;
+      background-color: #f9f9f9;
+    }
+
+    .card {
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      width: 300px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card h3 {
+      color: #006d77;
+      margin-top: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .card p {
+      color: #555;
+      margin: 0.5rem 0 1.2rem;
+    }
+
+    /* Specialities Section */
+    .specialities {
+      background-color: #eaf7f8;
+      text-align: center;
+      padding: 3.5rem 2rem;
+    }
+
+    .specialities h2 {
+      color: #006d77;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .specialities-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 2rem;
+      justify-items: center;
+    }
+
+    .speciality {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      padding: 1rem;
+      width: 180px;
+      transition: transform 0.3s ease;
+    }
+
+    .speciality:hover {
+      transform: scale(1.05);
+    }
+
+    .speciality img {
+      width: 100%;
+      height: 120px;
+      border-radius: 12px;
+      object-fit: cover;
+    }
+
+    .speciality p {
+      margin-top: 0.8rem;
+      font-weight: 600;
+      color: #333;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #004e54;
+      color: #e4e4e4;
+      padding: 3rem 2rem 1.5rem;
+      text-align: center;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-content h3 {
+      color: #ffffff;
+      margin-bottom: 1rem;
+    }
+
+    .footer-content p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      max-width: 350px;
+    }
+
+    .copyright {
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      margin-top: 1rem;
+      padding-top: 1rem;
+      font-size: 0.85rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .footer-content {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
 </head>
 
 <body>
- 
-    <header class="navbar">
-        <div class="logo">MediPin</div>
-        <nav>
-            <a href="./hospitals.html">Hospitals</a>
-            <a href="./clinics01.html">Clinics</a>
-            <a href="./pathlabs.html">Pathlabs</a>
-        </nav>
 
-        <nav class="other">
-            <a href="./aboutus.html">About us</a>
-            <a href="./help.html">Help</a>
-            <a href="./services.html">Services</a>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">MediPin</div>
+    <nav>
+      <a href="./hospitals.html">Hospitals</a>
+      <a href="./clinics01.html">Clinics</a>
+      <a href="./pathlabs.html">Pathlabs</a>
+    </nav>
+    <nav class="other">
+      <a href="./aboutus.html">About Us</a>
+      <a href="./help.html">Help</a>
+      <a href="./services.html">Services</a>
+    </nav>
+    <div class="auth-buttons">
+      <a href="./choose.html" class="btn">Login / Signup</a>
+    </div>
+  </header>
 
-        </nav>
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Find Trusted Healthcare Near You</h1>
+    <p>Locate hospitals, clinics, and diagnostic labs in Mumbai with verified information. MediPin connects you with
+      healthcare you can trust — quickly and easily.</p>
+  </section>
 
-        <div class="auth-buttons">
-            <a href="./signup.html" class="btn">Login / Signup</a>
-        </div>
-    </header>
+  <!-- Cards -->
+  <section class="card-section">
+    <a href="./hospitals.html" class="card-link">
+      <div class="card">
+        <img src="./home/Upper/hos.avif" alt="Hospitals">
+        <h3>Hospitals Near You</h3>
+        <p>Available 24 x 7</p>
+      </div>
+    </a>
 
-    <section class="search-bar">       
-        <input type="text" placeholder="Search hospitals , clinics , pathlabs OF Mumbai" class="search-input">
-        <button class="search-btn">Search</button>
-    </section>
+    <a href="./clinics01.html" class="card-link">
+      <div class="card">
+        <img src="./home/Upper/clinic.jpg" alt="Clinics">
+        <h3>Step Closer to Clinics</h3>
+        <p>Confirm your Doctor</p>
+      </div>
+    </a>
 
-    <section class="card-section">
-        <a href="./hospitals.html" class="card-link">
-            <div class="card">
-                <img src="./hos.avif" alt="Hospitals">
-                <h3>Hospitals Near You</h3>
-                <p>Available 24 x 7</p>
-            </div>
-        </a>
+    <a href="./pathlabs.html" class="card-link">
+      <div class="card">
+        <img src="./home/Upper/path.webp" alt="Pathlabs">
+        <h3>Path Labs</h3>
+        <p>Safe and trusted Pathology Labs</p>
+      </div>
+    </a>
+  </section>
 
-        <a href="./clinics01.html" class="card-link">
-            <div class="card">
-                <img src="./clinic.jpg" alt="Clinics">
-                <h3>Step closer to Clinics</h3>
-                <p>Confirm your Doctor</p>
-            </div>
-        </a>
+  <!-- Specialities -->
+  <section class="specialities">
+    <h2>Search Specialist Doctors near you</h2>
+    <div class="specialities-grid">
+      <div class="speciality">
+        <img src="./home/footer/gynec.jpg" alt="Gynecologist">
+        <p>Gynecologist</p>
+      </div>
+      <div class="speciality">
+        <img src="./home/footer/ent.webp" alt="ENT">
+        <p>ENT Specialist</p>
+      </div>
+      <div class="speciality">
+        <img src="./home/footer/pediatrician.webp" alt="Pediatrician">
+        <p>Pediatrician</p>
+      </div>
+      <div class="speciality">
+        <img src="./home/footer/dermatt.webp" alt="Dermatologist">
+        <p>Dermatologist</p>
+      </div>
+      <div class="speciality">
+        <img src="./home/footer/dentist.webp" alt="Dentist">
+        <p>Dentist</p>
+      </div>
+      <div class="speciality">
+        <img src="./home/footer/physio.avif" alt="Physiotherapists">
+        <p>Physiotherapists</p>
+      </div>
+    </div>
+  </section>
 
-        <a href="./pathlabs.html" class="card-link">
-            <div class="card">
-                <img src="./path.webp" alt="Pathlabs">
-                <h3>Path Labs</h3>
-                <p>Safe and trusted Pathlogy Labs</p>
-            </div>
-        </a>
-    </section>
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="about">
+        <h3>About Us</h3>
+        <p>Our project helps people easily locate nearby medical pathlabs, hospitals, and clinics with accurate details
+          and directions. Whether for emergencies or checkups, MediPin makes healthcare accessible and convenient.</p>
+      </div>
+      <div class="contact">
+        <h3>Contact</h3>
+        <p>Email: medipin123@gmail.com</p>
+        <p>Phone: +91 98765 43210</p>
+        <p>Address: DBIT, Kurla, Mumbai, India</p>
+      </div>
+    </div>
+    <p class="copyright">© 2025 MediPin. All rights reserved.</p>
+  </footer>
 
-    <section class="specialities">
-        <h2>Search Specialist Doctors near you</h2>
-        <div class="specialities-grid">
-            <div class="speciality">
-                <img src="./gynec.jpg" alt="Gynecologist">
-                <p>Gynecologist</p>
-            </div>
-            <div class="speciality">
-                <img src="./ent.webp" alt="ENT">
-                <p>ENT specialist</p>
-            </div>
-            <div class="speciality">
-                <img src="./pediatrician.webp" alt="Pediatrician">
-                <p>Pediatrician</p>
-            </div>
-            <div class="speciality">
-                <img src="./dermatt.webp" alt="Dermatologist">
-                <p>Dermatologist</p>
-            </div>
-            <div class="speciality">
-                <img src="./dentist.webp" alt="Dentist">
-                <p>Dentist</p>
-            </div>
-            <div class="speciality">
-                <img src="./physio.avif" alt="Physiotherapists">
-                <p>Physiotherapists</p>
-            </div>
-        </div>
-
-    </section>
-
-    <footer>
-        <div class="footer-content">
-            <div class="about">
-                <h3>About Us</h3>
-                <p>
-                    Our project aims to help people easily locate nearby medical pathlabs, hospitals, and clinics with
-                    accurate details and directions. It provides quick access to essential healthcare services, ensuring
-                    users can find trusted medical facilities in times of need. Whether for routine checkups,
-                    emergencies, or diagnostic tests, our platform makes healthcare more accessible and convenient.
-                </p>
-            </div>
-            <div class="contact">
-                <h3>Contact</h3>
-                <p>Email: medipin123@gmail.com</p>
-                <p>Phone: +91 98765 43210</p>
-                <p>Address: Dbit , Kurla , India</p>
-            </div>
-        </div>
-        <p class="copyright">© 2025 MediPin. All rights reserved.</p>
-    </footer>
 </body>
 
 </html>
